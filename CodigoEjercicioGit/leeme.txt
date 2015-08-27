@@ -1,0 +1,2 @@
+Esta carpeta contiene el código que se generará para aplicar el uso de Git en el control de versiones.
+
