@@ -1,2 +1,0 @@
-Esta carpeta contiene el código que se estará generando durante el curso por parte del instructor.
-
