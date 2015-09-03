@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+  
+    <form action="Agregar" method="POST">
+      <div> 
+          Nombre: <br>
+          <input type="text" name="campoNombre"/>
+      </div>  
+      <div> 
+          Direccion: <br>
+          <input type="text" name="campoDireccion"/>
+      </div>  
+      <br><br>
+      <button type="submit">Guardar...</button>
+    </form>
+    <br><br>
+    <a href="/">Regresar al menu...</a>     
+  </body>
+</html>

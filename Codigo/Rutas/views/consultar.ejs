@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+  
+    <form action="Consultar" method="POST">
+      <div> 
+          Ingresa el nombre a buscar: <br>
+          <input type="text" name="campoNombre"/>
+      </div>  
+      <br><br>
+      <button type="submit">Buscar...</button>
+    </form>
+    <div>
+      <h1>Detalle de la informacion </h1>
+      <br>
+      Nombre: <%= nombre %> <br>
+      Direccion: <%= direccion %> <br>
+    </div>
+
+    <br><br>
+    <a href="/">Regresar al menu...</a>     
+  </body>
+</html>
