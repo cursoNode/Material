@@ -24,6 +24,7 @@ router.post('/', function (req, res) {
 	var nuevo = new db.persona(nuevaPersona);
 
 	//indicarle a mongo que lo almacene
+
 	nuevo.save(function (error, dato){
 		if (!error) {
 			console.log('se ha insertado un nuevo registro');

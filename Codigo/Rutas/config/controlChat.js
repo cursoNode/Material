@@ -1,4 +1,5 @@
 module.exports = function(app, server){
+	
 	var socketIO = require('socket.io').listen(server);    //libreria para socketIO
         
 	global.socketIO = socketIO;    //variable global temporal para hacer broadcast
@@ -13,11 +14,10 @@ module.exports = function(app, server){
         
 		console.log('Se ha conectado un navegador.');
         
-        socket.on('mensaje', function (dato) {
+        socket.on('enviandoMensaje', function (dato) {
             console.log(dato);
 
             global.enviar.broadcast.emit('difusion',dato);
         });
-        
 	});
 }
