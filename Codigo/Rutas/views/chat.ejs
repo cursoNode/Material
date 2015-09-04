@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+  </head>
+  <script>
+        var socket = io.connect('localhost:3000');
+
+        function enviarMensaje() {
+          //obtenemos el contenido del mensaje
+          var mensaje = document.getElementById('mensaje').value;
+          console.log('enviando mensaje al servidor: ' + mensaje);
+
+          //document.getElementById('mensajes').value = document.getElementById('mensajes').value + '\n' + mensaje;
+
+          document.getElementById('mensaje').value='';
+
+          socket.emit('mensaje', mensaje);
+        }
+
+        socket.on('difusion', function (contenido){
+            //console.log('mensaje recibido');
+            document.getElementById('mensajes').value = document.getElementById('mensajes').value + '\n' + contenido;
+        });
+
+      
+  </script>
+  <body>
+    <h1><%= title %></h1>
+    
+    <div>
+      Mensaje:  
+          <input id="mensaje" type="text" name="mensaje"/>
+          <button type="button" onclick="enviarMensaje()"> Enviar </button>
+    </div>
+    <div>
+      <br><br>
+      Mensaje de la comunidad: <br>
+      <textarea id="mensajes" class="scrollabletextbox" style="border-radius:5px; border:1px solid #8A8A8A; height:150px; width:70vw;"></textarea>
+
+    </div>
+
+    <br><br>
+    <a href="/">Regresar al menu...</a>     
+  </body>
+</html>

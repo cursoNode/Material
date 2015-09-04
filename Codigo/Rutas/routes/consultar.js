@@ -16,21 +16,45 @@ router.post('/', function(req, res){
 	console.log(req.body);
 	var nombre = req.body.campoNombre;
 
+	/*
 	//Aqui va la logica para buscar
 	//en la base de datos
-	var  datos = {
-		title: 'Consultar informacion',
-		nombre: '',
-		direccion: ''
-	};
+	db.persona.findOne({usuario: nombre}, function (error, dato){
+		var  datos = {
+			title: 'Consultar informacion',
+			nombre: '',
+			direccion: ''
+		};
 
-	//obtengo la informacion de la base de datos
-	datos.nombre = nombre;
-	datos.direccion = 'direccion registrada';
+		if (dato != null) {
+			console.log(dato);
+			datos.nombre = nombre;
+			datos.direccion = dato.direccion;
+		} else {
+			console.log('No existe....');
+		}
 
-	//actualizamos la pagina con la informacion
-	//que se encontro
-	res.render('Consultar', datos);
+		//actualizamos la pagina con la informacion
+		//que se encontro
+		res.render('Consultar', datos);
+
+	});*/
+
+	/*db.persona.remove({usuario: nombre}, function (error, dato){
+
+		console.log(error);
+		console.log(dato);
+
+	})*/
+
+	db.persona.findOneAndUpdate({usuario: nombre}, 
+		{$set: {direccion: "actualizado"}}, function (error, dato){
+		console.log(error);
+		console.log(dato);
+
+	});
+
+	
 });
 
 module.exports = router;

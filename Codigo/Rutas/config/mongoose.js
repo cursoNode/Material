@@ -1,6 +1,6 @@
 if (!global.hasOwnProperty('db')){
 	var mongoose = require('mongoose');
-	var nombreBase = 'cursoNode';
+	var nombreBase = 'ejemploBase';
 	var uristring = 'mongodb://localhost/'+nombreBase;
 
 	mongoose.connect(uristring, function (error){

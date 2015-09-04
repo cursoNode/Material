@@ -9,6 +9,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var agregar = require('./routes/agregar');
 var consultar = require('./routes/consultar');
+var chat = require('./routes/chat');
+
 
 var app = express();
 require('./config/mongoose');
@@ -30,6 +32,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/Agregar',agregar);
 app.use('/Consultar',consultar);
+app.use('/Chat',chat);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

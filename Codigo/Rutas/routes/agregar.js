@@ -14,19 +14,34 @@ router.post('/', function (req, res) {
 
 	//Poner aqui la logica para insertar en la coleccion
 	//de la base de datos
+	
+	//crear un objeto JSON con los datos recibidos
 	var nuevaPersona = {
-		usuario: 'Monito',
-		direccion: 'en algun lugar'
+		usuario: req.body.campoNombre,
+		direccion: req.body.campoDireccion
 	};
 
 	var nuevo = new db.persona(nuevaPersona);
 
-	nuevo.save(function (error, nuevo){
-		console.log(nuevo);
+	//indicarle a mongo que lo almacene
+	nuevo.save(function (error, dato){
+		if (!error) {
+			console.log('se ha insertado un nuevo registro');
+			console.log(dato);
+		} else {
+			console.log(error);
+		}
+
+		res.redirect('/');
 	});
-
-
-	res.redirect('/');
 })
 
 module.exports = router;
+
+
+
+
+
+
+
+
